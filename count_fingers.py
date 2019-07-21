@@ -37,6 +37,7 @@ while True:
 
         count = 0
         for cnt in contours:
+            (x,y,w,h) = cv2.boundingRect(cnt)
             out_of_wrist = ((cY + (cY * 0.25)) > (y + h))
             limit_points = ((circumference * 0.25) > cnt.shape[0])
             if out_of_wrist and limit_points:
